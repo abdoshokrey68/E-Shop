@@ -1,0 +1,207 @@
+/* Logo Font */
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+/* font-family: 'Dancing Script', cursive; */
+
+/* Main Font */
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@200&display=swap');
+/* font-family: 'Source Code Pro', monospace; */
+
+/* Paragraph Fonts  */
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100&display=swap');
+/* font-family: 'Josefin Sans', sans-serif; */
+
+/* Start Main Style  */
+.logo {
+    font-family: 'Dancing Script', cursive !important;
+}
+h6 {
+    padding-top: 5px;
+}
+.count {
+    width: 95%;
+    margin: auto;
+}
+.main-font {
+    font-family: 'Source Code Pro', monospace;
+}
+.des {
+    line-height: 25px;
+    font-size: 1.3em;
+}
+.bold {
+    font-weight: bold;
+}
+.black {
+    color: black;
+}
+.black:hover {
+    color: black;
+}
+.center {
+    text-align: center;
+}
+
+.best-sellar {
+    border-bottom: 2px solid #999;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+
+}
+.best-sellar h3 {
+    border-left: 4px solid #947300;
+    padding: 10px;
+}
+.best-sellar .best-box {
+    padding-bottom: 10px;
+}
+
+
+
+/* Start Defult Style */
+.pagination li .page-link{
+    color: #000  !important;
+}
+
+.clear {
+    clear: both;
+}
+
+.btn-success, .btn-warning , .btn-danger, .btn-info {
+    color: #000 !important;
+}
+.btn-success:hover, .btn-warning:hover , .btn-danger:hover, .btn-info:hover , .btn-dark:hover {
+    color: #fff !important;
+}
+
+/* End Default Style */
+
+/* start  Dashboard Style */
+
+/* .header-control {
+    position: relative;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+.header-control .control-btn {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+.header-control .btn-link {
+    width: 100%;
+    text-align: left;
+}
+.header-control .btn-link:hover > .control-btn {
+    right: 20px;
+    transition: all 1s;
+} */
+
+.card-body .edit-card-control
+.card-body .edit-card-control > div {
+    border: 2px solid #333;
+    overflow: hidden;
+}
+
+.modal-backdrop  {
+    height: 0px;
+    display: none;
+}
+
+.orders-box {
+    width: 325px !important;
+}
+.orders-box img {
+    width: 100%;
+}
+.orders-box > div:hover {
+    cursor: pointer;
+    background-color: #eee;
+}
+.orders-box p {
+    margin: 0;
+}
+
+@media (min-width: 768px) {
+    .modal-dialog {
+        margin: 60px auto;
+    }
+}
+
+.black * {
+    color: #000;
+}
+
+ul.lang-box {
+    width: 150px !important;
+    margin: 0 !important;
+}
+@media (max-width: 600px ) {
+    ul.bell-box {
+        margin: 0 !important;
+    }
+}
+
+
+.color-size {
+    position: relative;
+}
+.color-size .color-label {
+    width: 35px;
+    height: 35px;
+    position: absolute;
+    border-radius: 50%;
+    margin: 1px 27px 0 8px;
+    cursor: pointer;
+}
+.color-size label.active {
+    box-shadow: 0px 0px 7px #000;
+    border: 2px solid #000;
+
+}
+.color-size input {
+    visibility: hidden;
+    margin-right: 27px;
+}
+
+.image-item {
+    width: 100%;
+    height: 100%;
+}
+.best-box {
+    border-bottom: 1px solid rgb(190, 190, 190);
+    margin-top: 10px;
+}
+
+.page-section {
+    padding: 1rem 0;
+}
+
+.row {
+    margin: 0 auto;
+}
+
+.icon-box svg{
+    font-size: 1.5em;
+    color: #fff;
+}
+i {
+    font-size: 1.5em;
+}
+
+.total-box {
+    min-height: 500px;
+}
+.total-title {
+    padding: 12px ;
+    border-radius: 8px;
+}
+
+
+@media (max-width: 992px) {
+    ul.navbar-nav {
+        margin-right: 0 !important;
+    }
+}
+
+

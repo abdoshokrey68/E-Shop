@@ -1,0 +1,260 @@
+#footer {
+    margin-top: 20px;
+}
+
+.icon-box, .icon-box * {
+    text-align: center;
+}
+
+.profile-image {
+    width: 100%;
+    height: 250px;
+    border: 2px solid #333;
+    border-radius: 50%;
+    display: flex;
+    margin: auto;
+}
+
+/* @media (min-width: 576px) {
+    .container-sm, .container {
+        max-width: 710px;
+    }
+} */
+
+.store-box {
+    height: 100%;
+}
+.store-box > div {
+    height: 70%;
+}
+.store-box img {
+    height: 100%;
+    width: 100%;
+}
+.form-control {
+    margin: 5px 0;
+}
+
+.password-validate-list {
+    line-height: 30px;
+    font-size: 1.1em;
+    font-weight: bold;
+    padding: 0px;
+    list-style-type: none;
+}
+
+.image-career-store {
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+label {
+    margin-bottom: 0;
+}
+
+.row {
+    margin: 0;
+}
+.home-stores-image {
+    width: 100%;
+    /* height: 100%; */
+}
+.icon-box svg.svg-inline--fa {
+    font-size: 2.2em;
+    margin-bottom: 10px;
+}
+.icon-box:hover > svg.svg-inline--fa{
+    color: #fff;
+}
+.services h1 {
+    text-align: center;
+    font-size: 3em;
+    margin: auto;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #545454;
+    font-weight: bold;
+    padding-bottom: 15px;
+}
+.services .icon-box {
+    padding: 20px;
+    margin-bottom: 15px;
+}
+.services .icon-box img {
+    width: 100%;
+    height: 100%;
+}
+.services .icon-box:hover {
+    background-color: #404040;
+    border: 1px solid #eee;
+}
+.services .icon-box:hover > a {
+    color: #545454;
+}
+
+.stores-box h4 {
+    text-align: center;
+}
+.my-store {
+    transition: all 0.5s;
+}
+.my-store > div:hover {
+    background: #333;
+}
+.my-store > div:hover a > h5 {
+    color: #fff;
+}
+
+.session {
+    border-radius: 5px;
+    overflow: hidden;
+    position: absolute;
+    left: 15px;
+    top: 100px;
+    z-index: 999;
+    min-width: 300px;
+    max-width: 300px;
+    font-weight: bold;
+    color: #fff;
+    animation-delay: 1s;
+    animation: 3s session;
+}
+.session > div {
+    padding: 10px;
+    position: relative;
+}
+.session .success-box {
+    background: #fff;
+}
+
+@keyframes session {
+    0% {
+        left: -400px;
+    }
+
+    100% {
+        left: 15px;
+    }
+}
+
+.exit .dropdown-menu {
+    right: 0;
+}
+.exit .dropdown-menu * {
+    text-align: center;
+    margin: auto;
+}
+
+
+/* STart Login Page */
+
+.main  .justify-content-center {
+    padding-top: 50px;
+}
+.main .justify-content-center .card .card-header {
+    background: #e96b56;
+    color: #fff;
+    font-weight: bold;
+    border: none;
+}
+.main  .justify-content-center .card .card-body {
+    /* background: #333; */
+    /* color: #fff; */
+    font-weight: bold;
+}
+
+
+/* Google Login Button  */
+
+@import url(https://fonts.googleapis.com/css?family=Roboto:500);
+.google-div {
+    display: flex;
+    justify-content: center;
+}
+.google-btn {
+    width: 184px;
+    height: 42px;
+    background-color: #f7f7f7;
+    border-radius: 2px;
+    box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.25);
+    display: flex;
+    align-items: center;
+}
+
+.google-btn .google-icon-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.google-btn .google-icon {
+    width: 18px;
+    height: 18px;
+}
+.google-btn .btn-text {
+    float: right;
+    margin: 11px 11px 0 0;
+    color: #fff;
+    font-size: 14px;
+    letter-spacing: 0.2px;
+    font-family: "Roboto";
+}
+.google-btn:hover {
+    box-shadow: 0 0 6px #e6e6e6;
+}
+.google-btn:active {
+    background: #b6b6b6;
+}
+
+/* Facebook login Button */
+a:hover > span {
+    color: #fff;
+}
+.fb-div {
+    display: flex;
+    justify-content: center;
+}
+.or {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.btn-round {
+	background: #5a5656;
+	border-radius: 50%;
+	color: #f4f4f4;
+	display: block;
+	font-size: 12px;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	text-transform: uppercase;
+	width: 50px;
+}
+
+.facebook-before {
+	background: #0064ab;
+	border-radius: 3px 0px 0px 3px;
+	color: #f4f4f4;
+	display: block;
+	float: left;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	width: 50px;
+}
+
+.facebook {
+	background: #0079ce;
+	border: none;
+	border-radius: 0px 3px 3px 0px;
+	color: #f4f4f4;
+	cursor: pointer;
+	height: 50px;
+	text-transform: uppercase;
+	width: 250px;
+}
+
+/* End Login Page */
+
+

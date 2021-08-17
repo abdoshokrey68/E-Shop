@@ -1,0 +1,13 @@
+* {
+    text-align: right;
+}
+.contact .info-box * {
+    text-align: center;
+}
+.exit .dropdown-menu {
+    right: auto;
+    left: 0;
+}
+.pricing h4, .pricing h4 *, .pricing h3 {
+    text-align: center;
+}

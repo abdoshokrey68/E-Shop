@@ -1,0 +1,95 @@
+body {
+    font-size: 16px;
+}
+.bold {
+    font-weight: bold;
+}
+.navbar {
+    display: block;
+    flex-wrap: wrap;
+    align-items: none;
+    justify-content: space-between;
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+}
+.panels-box, .panels-box * {
+    color: #000;
+}
+@media(min-width:768px) {
+    .sidebar {
+        top: -135px;
+    }
+}
+.modal-backdrop {
+    width: 0;
+    height: 0;
+    display: none;
+}
+table thead th,table tbody  {
+    text-align: center;
+}
+
+.clear {
+    clear: both;
+}
+.color-size {
+    position: relative;
+}
+.color-label {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    border-radius: 50%;
+    margin: 1px 27px 0 8px;
+    cursor: pointer;
+}
+input[type="color"] {
+    border: 0;
+}
+.image-item {
+    width: 100%;
+    height: 200px;
+}
+
+.image-res {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+
+.header-control {
+    position: relative;
+    /* height: 100px; */
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+.header-control .control-btn {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+.header-control .btn-link {
+    width: 100%;
+    text-align: left;
+}
+.header-control .btn-link:hover > .control-btn {
+    right: 20px;
+    transition: all 1s;
+}
+
+.icon-down {
+    position: relative;
+    right: 55px;
+}
+
+.but-stores *,.but-stores {
+    width: 100% !important;
+}
+@media(max-width:540px) {
+    .page-wrapper {
+        padding-top: 70px !important;
+    }
+}
+
+
