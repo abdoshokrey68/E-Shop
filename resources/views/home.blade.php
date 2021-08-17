@@ -65,21 +65,21 @@
                     <div class="col-lg-4">
                         <div class="icon-box">
                         <i class="fas fa-pencil-ruler"></i>
-                        <h3><a href=""> @lang('site.wdesign')</a></h3>
+                        <h3><a href="#"> @lang('site.wdesign')</a></h3>
                         <p> @lang('site.wdesign_des') </p>
                         </div>
                     </div>
                     <div class="col-lg-4 mt-4 mt-lg-0">
                         <div class="icon-box">
                         <i class="fas fa-bullhorn"></i>
-                        <h3><a href=""> @lang('site.emarketing')</a></h3>
+                        <h3><a href="#"> @lang('site.emarketing')</a></h3>
                         <p> @lang('site.emarketing_des') </p>
                         </div>
                     </div>
                     <div class="col-lg-4 mt-4 mt-lg-0">
                         <div class="icon-box">
                         <i class="fas fa-headset"></i>
-                        <h3><a href=""> @lang('site.tsupport')</a></h3>
+                        <h3><a href="#"> @lang('site.tsupport')</a></h3>
                         <p> @lang('site.tsupport_des') </p>
                         </div>
                     </div>

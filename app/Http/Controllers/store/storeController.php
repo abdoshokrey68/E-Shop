@@ -73,8 +73,12 @@ class storeController extends Controller
     public function pay_coins($store_id)
     {
         $store = store::find($store_id);
-        if ($store->user_id == Auth::id()) {
-            return view('store.dashboard.pay_coins', compact('store'));
+        if ($store) {
+            if ($store->user_id == Auth::id()) {
+                return view('store.dashboard.pay_coins', compact('store'));
+            } else {
+                return redirect()->route('home');
+            }
         } else {
             return redirect()->route('home');
         }
@@ -84,63 +88,67 @@ class storeController extends Controller
     {
         $store = store::find($store_id);
         $user = User::find(Auth::id());
-        if ($store->user_id == Auth::id()) {
-            $request->validate([
-                'plan'      => 'required',
-            ]);
 
-            if ($request->plan == 1) {
-                if ($user->coins >= 10) {
-                    // $new_coins = $user->coins - 10;
-                    $user->update([
-                        'coins'     => $user->coins - 10,
-                    ]);
-                    if ($store->timeend < time()) {
-                        $newtime = time() + (30 * 24 * 60 * 60 );
+        if ($store) {
+            if ($store->user_id == Auth::id()) {
+                $request->validate([
+                    'plan'      => 'required',
+                ]);
+
+                if ($request->plan == 1) {
+                    if ($user->coins >= 10) {
+                        // $new_coins = $user->coins - 10;
+                        $user->update([
+                            'coins'     => $user->coins - 10,
+                        ]);
+                        if ($store->timeend < time()) {
+                            $newtime = time() + (30 * 24 * 60 * 60 );
+                        } else {
+                            $newtime = $store->timeend + (30 * 24 * 60 * 60 );
+                        }
+                        $store->update([
+                            'subscription'  => 1,
+                            'timeend'       => $newtime,
+                        ]);
+                        $user->save();
+                            $request->session()->flash('success', 'Your monthly subscription has been successfully renewed' . $store->name);
+                        return redirect()->back();
                     } else {
-                        $newtime = $store->timeend + (30 * 24 * 60 * 60 );
+                        $request->session()->flash('error', 'Your coins are not enough. Recharge first and try again' . $store->name);
+                        return redirect()->back();
                     }
-                    $store->update([
-                        'subscription'  => 1,
-                        'timeend'       => $newtime,
-                    ]);
-                    $user->save();
-                        $request->session()->flash('success', 'Your monthly subscription has been successfully renewed' . $store->name);
-                    return redirect()->back();
-                } else {
-                    $request->session()->flash('error', 'Your coins are not enough. Recharge first and try again' . $store->name);
-                    return redirect()->back();
                 }
-            }
-            if ($request->plan == 2) {
-                if ($user->coins >= 100) {
-                    // $new_coins = $user->coins - 10;
-                    $user->update([
-                        'coins'     => $user->coins - 10,
-                    ]);
-                    if ($store->timeend < time()) {
-                        $newtime = time() + (360 * 24 * 60 * 60 );
+                if ($request->plan == 2) {
+                    if ($user->coins >= 100) {
+                        // $new_coins = $user->coins - 10;
+                        $user->update([
+                            'coins'     => $user->coins - 10,
+                        ]);
+                        if ($store->timeend < time()) {
+                            $newtime = time() + (360 * 24 * 60 * 60 );
+                        } else {
+                            $newtime = $store->timeend + (360 * 24 * 60 * 60 );
+                        }
+                        $store->update([
+                            'subscription'  => 1,
+                            'timeend'       => $newtime,
+                        ]);
+                        $user->save();
+                            $request->session()->flash('success', 'Your subscription has been successfully renewed for a year' . $store->name);
+                        return redirect()->back();
                     } else {
-                        $newtime = $store->timeend + (360 * 24 * 60 * 60 );
+                        $request->session()->flash('error', 'Your coins are not enough. Recharge first and try again' . $store->name);
+                        return redirect()->back();
                     }
-                    $store->update([
-                        'subscription'  => 1,
-                        'timeend'       => $newtime,
-                    ]);
-                    $user->save();
-                        $request->session()->flash('success', 'Your subscription has been successfully renewed for a year' . $store->name);
-                    return redirect()->back();
-                } else {
-                    $request->session()->flash('error', 'Your coins are not enough. Recharge first and try again' . $store->name);
-                    return redirect()->back();
                 }
+                $request->session()->flash('error', 'Something Went Wrong. Review Your Details And Try Again');
+                return redirect()->back();
+            } else {
+                return redirect()->route('home');
             }
-            $request->session()->flash('error', 'Something Went Wrong. Review Your Details And Try Again');
-            return redirect()->back();
         } else {
             return redirect()->route('home');
         }
-
     }
 
     public function editinfo ($store_id)
@@ -163,65 +171,68 @@ class storeController extends Controller
     public function updateinfo (request $request, $store_id)
     {
         $store = store::find($store_id);
+        if ($store) {
 
-        if ($store->user_id == Auth::id())
-        {
-            if ($request->image) {
-                $request->validate([
-                    'image'         => 'mimes:jpeg,jpg,png|max:2050',
-                ]);
-                if ($store->image != 'default.jpg' && $store->image != 'default.png' && $store->image != null)
-                {
-                    if (is_file(public_path("img/stores/$store->image")))
+            if ($store->user_id == Auth::id())
+            {
+                if ($request->image) {
+                    $request->validate([
+                        'image'         => 'mimes:jpeg,jpg,png|max:2050',
+                    ]);
+                    if ($store->image != 'default.jpg' && $store->image != 'default.png' && $store->image != null)
                     {
-                        unlink(public_path("img/stores/$store->image"));
+                        if (is_file(public_path("img/stores/$store->image")))
+                        {
+                            unlink(public_path("img/stores/$store->image"));
+                        }
                     }
+
+                    $file           = $request->file('image');
+                    $path           = public_path() . '/img/stores';
+                    $image_name     = time(). rand(1, 2000) .'.'. $file->getClientOriginalExtension();
+                    $file->move($path,$image_name);
+                    $store->update([
+                        'image'      => $image_name
+                    ]);
                 }
-
-                $file           = $request->file('image');
-                $path           = public_path() . '/img/stores';
-                $image_name     = time(). rand(1, 2000) .'.'. $file->getClientOriginalExtension();
-                $file->move($path,$image_name);
-                $store->update([
-                    'image'      => $image_name
+                $request->validate([
+                    'name'          => 'required|max:20',
+                    'des'           => 'required|max:255',
+                    'phone'         => 'required|max:20',
+                    'address'       => 'required|max:50',
+                    'facebook'      => 'max:255' ,
+                    'twitter'       => 'max:255' ,
+                    'instagram'     => 'max:255' ,
+                    'linkedin'      => 'max:255' ,
+                    'delivery'      => 'required|max:2' ,
+                    'payment'       => 'required|max:2' ,
+                    'status'        => 'required|max:2' ,
+                    'currency'      => 'required|max:4|min:3'
                 ]);
+                $store->update([
+                    'name'          => $request->name,
+                    'des'           => $request->des,
+                    'phone'         => $request->phone,
+                    'address'       => $request->address,
+                    'facebook'      => $request->facebook,
+                    'twitter'       => $request->twitter,
+                    'instagram'     => $request->instagram,
+                    'linkedin'      => $request->linkedin,
+                    'delivery'      => $request->delivery,
+                    'payment'       => $request->payment,
+                    'status'        => $request->status,
+                    'currency'      => $request->currency,
+                ]);
+                $request->session()->flash('success', 'Update Store Information Is Successfuly');
+                // $request->session()->flash('success', 'Update information successtully');
+                return redirect()->route('dashboard', $store_id)->with('success', 'Update Information Is Success');
+
+            } else {
+                return redirect()->route('home');
             }
-            $request->validate([
-                'name'          => 'required|max:20',
-                'des'           => 'required|max:255',
-                'phone'         => 'required|max:20',
-                'address'       => 'required|max:50',
-                'facebook'      => 'max:255' ,
-                'twitter'       => 'max:255' ,
-                'instagram'     => 'max:255' ,
-                'linkedin'      => 'max:255' ,
-                'delivery'      => 'required|max:2' ,
-                'payment'       => 'required|max:2' ,
-                'status'        => 'required|max:2' ,
-                'currency'      => 'required|max:4|min:3'
-            ]);
-            $store->update([
-                'name'          => $request->name,
-                'des'           => $request->des,
-                'phone'         => $request->phone,
-                'address'       => $request->address,
-                'facebook'      => $request->facebook,
-                'twitter'       => $request->twitter,
-                'instagram'     => $request->instagram,
-                'linkedin'      => $request->linkedin,
-                'delivery'      => $request->delivery,
-                'payment'       => $request->payment,
-                'status'        => $request->status,
-                'currency'      => $request->currency,
-            ]);
-            $request->session()->flash('success', 'Update Store Information Is Successfuly');
-            // $request->session()->flash('success', 'Update information successtully');
-            return redirect()->route('dashboard', $store_id)->with('success', 'Update Information Is Success');
-
         } else {
-            return redirect()->route('home');
+            return redirect()->back()->with('error', ' You Not Have Permission To Join This Page ');
         }
-
     }
 
     public function orders ($store_id)
