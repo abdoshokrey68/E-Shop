@@ -50,7 +50,13 @@
                                 <input id="password-confirm" placeholder="@lang('site.reset_password')" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                             </div>
                         </div>
-
+                        <div class="col-md-12 mt-3">
+                            <ul class="password-validate-list">
+                                <li> <i class="fas @error("password") fa-times text-danger @else fa-check text-success @enderror"></i> @lang('site.password_validate1') </li>
+                                <li> <i class="fas @error("password") fa-times text-danger @else fa-check text-success @enderror"></i> @lang('site.password_validate2') </li>
+                                <li> <i class="fas @error("password") fa-times text-danger @else fa-check text-success @enderror"></i> @lang('site.password_validate3') </li>
+                            </ul>
+                        </div>
                         <div class="form-group row mb-0">
                             <div class="col-md-12 ">
                                 <button type="submit" class="col-12 btn btn-primary">
@@ -59,7 +65,7 @@
                             </div>
                         </div>
                     </form>
-                    <div class="or"><span class="btn-round">or</span></div>
+                    {{-- <div class="or"><span class="btn-round">or</span></div>
 
                     <div class="clear mt-3"></div>
 
@@ -83,7 +89,7 @@
                             </a>
                             <a href="{{route('fb.login')}}" class="p-3 text-center facebook text-light btn-link"> Login Using Facbook </a>
                         </div>
-                    </a>
+                    </a> --}}
                 </div>
             </div>
         </div>

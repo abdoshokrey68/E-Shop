@@ -58,7 +58,7 @@
                         </div>
                     </div>
                 </form>
-                <div class="or"><span class="btn-round">or</span></div>
+                {{-- <div class="or"><span class="btn-round">or</span></div>
 
                 <div class="clear mt-3"></div>
 
@@ -82,7 +82,7 @@
                         </a>
                         <a href="{{route('fb.login')}}" class="p-3 text-center facebook text-light btn-link"> Login Using Facbook </a>
                     </div>
-                </a>
+                </a> --}}
 
                                 {{-- <a href="{{route('fb.login')}}">
                     <div class="fb-div mt-3">

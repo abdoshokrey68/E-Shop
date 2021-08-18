@@ -101,9 +101,16 @@
                         </div>
                     </div>
 
-                    <div v-if="search.lenght == 0 && careers.length == 0"> <h1 class="text-danger text-center col-md-12 mt-5"> {{lang.no_job}} </h1> </div>
-                    <div v-if="search.lenght != 0 && careers.length == 0"> <h1 class="text-danger text-center col-md-12 mt-5"> {{lang.career_empty}} </h1> </div>
-                </div>
+                    <div v-if="careers.length == 0 && search.length != 0">
+                        <h2 class="text-danger col-md-12 text-center"> "{{search}}" {{lang.not_here}} </h2>
+                        <h4 class="text-danger"> {{lang.search_again}} </h4>
+                    </div>
+                    <div v-if="careers.length == 0 && search.length == 0">
+                        <h2 class="text-danger col-md-12 text-center"> {{lang.stores_empty}} </h2>
+                        <a href="/add_store"> <h4 class="text-danger"> {{lang.add_new_store}} </h4> </a>
+                    </div>
+
+                    </div>
             </div>
         </div>
     </div>
@@ -137,6 +144,7 @@
         },
         watch: {
             search() {
+                this.getcareers();
                 this.searchcareers();
             },
         },
@@ -148,8 +156,8 @@
                 .then(res => {
                     this.careers = res.data.careers;
                     this.countrys = JSON.parse(res.data.countrys);
-                    this.max_price  = res.data.max_price;
-                    this.min_price = res.data.min_price;
+                    this.max_price  = res.data.max_price.salary;
+                    this.min_price = res.data.min_price.salary;
                     this.mx_price = res.data.max_price;
                     this.mn_price = res.data.min_price;
                 });

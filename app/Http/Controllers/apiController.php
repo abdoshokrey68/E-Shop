@@ -57,8 +57,8 @@ class apiController extends Controller
         // return $min_price->salary;
         return [
             'careers'   => $careers,
-            'max_price' => $max_price->salary,
-            'min_price' => $min_price->salary,
+            'max_price' => $max_price,
+            'min_price' => $min_price,
             'countrys'  => $countrys
         ];
     }

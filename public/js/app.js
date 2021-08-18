@@ -2105,6 +2105,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'homeCareers',
   props: ['locale'],
@@ -2130,6 +2137,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   watch: {
     search: function search() {
+      this.getcareers();
       this.searchcareers();
     }
   },
@@ -2140,8 +2148,8 @@ __webpack_require__.r(__webpack_exports__);
       axios.get("/api/getcareers").then(function (res) {
         _this.careers = res.data.careers;
         _this.countrys = JSON.parse(res.data.countrys);
-        _this.max_price = res.data.max_price;
-        _this.min_price = res.data.min_price;
+        _this.max_price = res.data.max_price.salary;
+        _this.min_price = res.data.min_price.salary;
         _this.mx_price = res.data.max_price;
         _this.mn_price = res.data.min_price;
       });
@@ -2299,6 +2307,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'homeStores',
   props: ['locale'],
@@ -2359,7 +2371,9 @@ __webpack_require__.r(__webpack_exports__);
           markets: ' بعض اسواقنا ',
           not_here: ' ليس موجود ',
           search_again: ' أبحث مرة اخري ',
-          payment: ' دفع الكتروني '
+          payment: ' دفع الكتروني ',
+          stores_empty: ' لا يوجد متاجر بعد ',
+          add_new_store: 'قم بإضافة متجر خاص بك '
         };
       } else {
         this.lang = {
@@ -2381,7 +2395,9 @@ __webpack_require__.r(__webpack_exports__);
           markets: ' Some of our Markets ',
           not_here: 'isn\'t here',
           search_again: 'Search Again',
-          payment: ' Payment '
+          payment: ' Payment ',
+          stores_empty: ' There are no stores yet ',
+          add_new_store: 'Add your own store'
         };
       }
     }
@@ -40290,23 +40306,41 @@ var render = function() {
                 : _vm._e()
             }),
             _vm._v(" "),
-            _vm.search.lenght == 0 && _vm.careers.length == 0
+            _vm.careers.length == 0 && _vm.search.length != 0
               ? _c("div", [
                   _c(
-                    "h1",
-                    { staticClass: "text-danger text-center col-md-12 mt-5" },
-                    [_vm._v(" " + _vm._s(_vm.lang.no_job) + " ")]
-                  )
+                    "h2",
+                    { staticClass: "text-danger col-md-12 text-center" },
+                    [
+                      _vm._v(
+                        ' "' +
+                          _vm._s(_vm.search) +
+                          '" ' +
+                          _vm._s(_vm.lang.not_here) +
+                          " "
+                      )
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c("h4", { staticClass: "text-danger" }, [
+                    _vm._v(" " + _vm._s(_vm.lang.search_again) + " ")
+                  ])
                 ])
               : _vm._e(),
             _vm._v(" "),
-            _vm.search.lenght != 0 && _vm.careers.length == 0
+            _vm.careers.length == 0 && _vm.search.length == 0
               ? _c("div", [
                   _c(
-                    "h1",
-                    { staticClass: "text-danger text-center col-md-12 mt-5" },
-                    [_vm._v(" " + _vm._s(_vm.lang.career_empty) + " ")]
-                  )
+                    "h2",
+                    { staticClass: "text-danger col-md-12 text-center" },
+                    [_vm._v(" " + _vm._s(_vm.lang.stores_empty) + " ")]
+                  ),
+                  _vm._v(" "),
+                  _c("a", { attrs: { href: "/add_store" } }, [
+                    _c("h4", { staticClass: "text-danger" }, [
+                      _vm._v(" " + _vm._s(_vm.lang.add_new_store) + " ")
+                    ])
+                  ])
                 ])
               : _vm._e()
           ],
@@ -40691,7 +40725,7 @@ var render = function() {
                 : _vm._e()
             }),
             _vm._v(" "),
-            _vm.stores.length == 0
+            _vm.stores.length == 0 && _vm.search.length != 0
               ? _c("div", [
                   _c(
                     "h2",
@@ -40708,7 +40742,23 @@ var render = function() {
                   ),
                   _vm._v(" "),
                   _c("h4", { staticClass: "text-danger" }, [
-                    _vm._v(" " + _vm._s(_vm.lang.serach_again) + " ")
+                    _vm._v(" " + _vm._s(_vm.lang.search_again) + " ")
+                  ])
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.stores.length == 0 && _vm.search.length == 0
+              ? _c("div", [
+                  _c(
+                    "h2",
+                    { staticClass: "text-danger col-md-12 text-center" },
+                    [_vm._v(" " + _vm._s(_vm.lang.stores_empty) + " ")]
+                  ),
+                  _vm._v(" "),
+                  _c("a", { attrs: { href: "/add_store" } }, [
+                    _c("h4", { staticClass: "text-danger" }, [
+                      _vm._v(" " + _vm._s(_vm.lang.add_new_store) + " ")
+                    ])
                   ])
                 ])
               : _vm._e()

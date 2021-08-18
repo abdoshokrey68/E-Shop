@@ -77,9 +77,13 @@
                             <a :href="'/store/'+store.id" target="_blank" style="display:block" class="h5 col-md-12 m-0 text-dark"> <h5 class="p-2">{{store.name}}</h5></a>
                         </div>
                     </div>
-                    <div v-if="stores.length == 0">
+                    <div v-if="stores.length == 0 && search.length != 0">
                         <h2 class="text-danger col-md-12 text-center"> "{{search}}" {{lang.not_here}} </h2>
-                        <h4 class="text-danger"> {{lang.serach_again}} </h4>
+                        <h4 class="text-danger"> {{lang.search_again}} </h4>
+                    </div>
+                    <div v-if="stores.length == 0 && search.length == 0">
+                        <h2 class="text-danger col-md-12 text-center"> {{lang.stores_empty}} </h2>
+                        <a href="/add_store"> <h4 class="text-danger"> {{lang.add_new_store}} </h4> </a>
                     </div>
                 </div>
             </div>
@@ -151,7 +155,8 @@
                         not_here:       ' ليس موجود ',
                         search_again:   ' أبحث مرة اخري ',
                         payment:        ' دفع الكتروني ',
-
+                        stores_empty:   ' لا يوجد متاجر بعد ',
+                        add_new_store:  'قم بإضافة متجر خاص بك ',
                     }
                 } else {
                     this.lang = {
@@ -174,6 +179,8 @@
                         not_here:       'isn\'t here',
                         search_again:   'Search Again',
                         payment:        ' Payment ',
+                        stores_empty:   ' There are no stores yet ',
+                        add_new_store:  'Add your own store',
                     }
                 }
             }
