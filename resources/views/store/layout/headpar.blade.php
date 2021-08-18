@@ -24,26 +24,28 @@
                         <!-- Authentication Links -->
                         @guest
                             @if (Route::has('login'))
-                                <li class="nav-item">
+                                <li class="nav-item mt-2">
                                     <a class="nav-link" href="{{ route('login') }}">@lang('site.login')</a>
                                 </li>
                             @endif
 
                             @if (Route::has('register'))
-                                <li class="nav-item">
+                                <li class="nav-item mt-2">
                                     <a class="nav-link" href="{{ route('register') }}">@lang('site.register')</a>
                                 </li>
                             @endif
                         @else
-                            <li class="nav-item">
+                            <li class="nav-item mt-2">
                                 <a href="{{route('store.orders', $store_id)}}" class="nav-link btn btn-light p-0 m-0 shop-icon">
-                                    <i class="shop-icon fas fa-shopping-cart p-2" style="font-size: 25px"></i>
-                                    <span class="bg-danger orders-count">
-                                        <orders-count store_id="{{$store->id}}" user_id="{{Auth::id()}}" />
-                                    </span>
+                                    <div class="shop-icon">
+                                        <i class="shop-icon fas fa-shopping-cart p-2" style="font-size: 25px"></i>
+                                        <span class="bg-danger orders-count">
+                                            <orders-count store_id="{{$store->id}}" user_id="{{Auth::id()}}" />
+                                        </span>
+                                    </div>
                                 </a>
                             </li>
-                            <li class="nav-item dropdown">
+                            <li class="nav-item mt-2 dropdown">
                                 <a href="{{ route('logout')}}" class="nav-link p-2 m-0 text-danger" role="button"
                                         onclick="event.preventDefault();
                                         document.getElementById('logout-form').submit();">
@@ -57,7 +59,7 @@
 
                         @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
                             @if (app()->getLocale() != $localeCode)
-                                <li class="nav-item">
+                                <li class="nav-item mt-2">
                                     <a rel="alternate" class="nav-link text-uppercase m-0 p-2 text-light btn btn-primary" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
                                         {{-- <i class="fas fa-language"></i> --}}
                                         {{ $localeCode }}
@@ -69,6 +71,7 @@
                         @auth
                             @if ($store)
                                 @if ($store->user_id == auth()->user()->id)
+                                <li class="nav-item mt-2">
                                     <a href="{{route('dashboard', $store_id)}}" class="btn ">
                                         {{-- <i class="fas fa- mr-2 ml-2" style="font-size: 20px"></i> --}}
                                         <i class="shop-icon fas fa-user-cog text-danger" style="font-size: 25px; margin-right: 10px;"></i>
@@ -76,6 +79,7 @@
                                             @lang('site.dashboard')
                                         </span> --}}
                                     </a>
+                                </li>
                                 @endif
                             @endif
                         @endauth
@@ -86,9 +90,9 @@
 
     </div>
 </header><!-- End Header -->
+<div class="loading">Loading&#8230;</div>
 
     <div class="col-md-12">
-
         <!-- ======= Hero Section ======= -->
         <section id="hero" class="hero d-flex align-items-center" style='background-image: url("{{ URL::asset('img/front/hero-bg.png')}}")'>
 

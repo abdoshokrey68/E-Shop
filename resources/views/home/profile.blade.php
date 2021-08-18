@@ -11,7 +11,7 @@
 
                 <div class="row justify-content-center">
                     <div class="col-md-6">
-                        <form action="{{route('profile.update', auth()->user()->id)}}" method="post">
+                        <form action="{{route('profile.update', auth()->user()->id)}}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="col-md-12 mt-3">
                                 <input type="text" name="name"
@@ -55,19 +55,27 @@
 
                             <div class="col-md-12 mt-3">
                                 <input type="password" name="password"
+                                value=""
                                 class="form-control"
                                 placeholder="Enter Your password .. ">
                                 @error('password')
                                     <div class="alert alert-danger mt-2"> <i class="fas fa-times"></i> {{ $message }}</div>
                                 @enderror
                                 <div class="col-md-12 mt-3">
-                                    <h4>  </h4>
                                     <ul class="password-validate-list">
                                         <li> <i class="fas @error("password") fa-times text-danger @else fa-check text-success @enderror"></i> @lang('site.password_validate1') </li>
                                         <li> <i class="fas @error("password") fa-times text-danger @else fa-check text-success @enderror"></i> @lang('site.password_validate2') </li>
                                         <li> <i class="fas @error("password") fa-times text-danger @else fa-check text-success @enderror"></i> @lang('site.password_validate3') </li>
                                     </ul>
                                 </div>
+                            </div>
+
+                            <div class="col-md-12 mt-3">
+                                <input type="file" name="image"
+                                class="form-control">
+                                @error('image')
+                                    <div class="alert alert-danger mt-2"> <i class="fas fa-times"></i> {{ $message }}</div>
+                                @enderror
                             </div>
 
                             <div class="col-md-12 mt-3 justify-content-center">

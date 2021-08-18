@@ -70,7 +70,7 @@ class itemControiller extends Controller
             // dd($request->file('image'));
             if ($request->image) {
                 $request->validate([
-                    'image'         => 'mimes:jpeg,jpg,png|max:4000',
+                    'image'         => 'mimes:jpeg,jpg,png|max:4050',
                 ]);
                 $file           = $request->file('image');
                 $path           = public_path() . '/image/items';

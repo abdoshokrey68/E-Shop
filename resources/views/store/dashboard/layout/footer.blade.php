@@ -9,6 +9,7 @@
             </span>
     </div>
 </div> --}}
+
 <div class="container"></div>
 <!-- /.panel-footer -->
 <!-- jQuery -->
@@ -22,7 +23,6 @@
         <script src="{{URL::asset('js/raphael.min.js')}}"></script>
         <script src="{{URL::asset('js/morris.min.js')}}"></script>
         <script src="{{URL::asset('js/morris-data.js')}}"></script>
-
 
         <script src="{{URL::asset('js/backend/startmin.js')}}"></script>
         <script src="{{URL::asset('js/backend/backend.js')}}"></script>

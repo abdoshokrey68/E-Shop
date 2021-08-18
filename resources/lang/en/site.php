@@ -14,7 +14,7 @@ return [
     'my_address'        => 'Egypt, Asswan',
     'call'              => ' Call Us ',
     'about_co'          => 'About company',
-    'about_co_des'      => 'Tools to help improve the search results and reach of your website with Expandcart. ExpandCart supports you and increases your online sales by connecting to social media channels. Mobile applications for your store. Support for all payment methods. A team of experts to help you.',
+    'about_co_des'      => ' Tools to help improve search results and your website \'s reach. Our company supports you and increases your sales online by linking to social media channels. Mobile apps for your store. Support all payment methods. A team of experts to help you.',
     'go_to_store'       => 'Go to your store',
     'search'            => 'Search',
     'update'            => 'Update',

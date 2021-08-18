@@ -9,9 +9,9 @@
 
         <title> {{$store->name}}</title>
         @if ($store->image)
-        <link rel="icon" type="image/x-icon" href="{{URL::asset("img/stores/$store->image")}}" />
+            <link rel="icon" type="image/x-icon" href="{{URL::asset("img/stores/$store->image")}}" />
         @else
-        <link rel="icon" type="image/x-icon" href="{{URL::asset("img/stores/default.png")}}" />
+            <link rel="icon" type="image/x-icon" href="{{URL::asset("img/stores/default.png")}}" />
         @endif
 
         <!-- Bootstrap Core CSS -->
@@ -47,7 +47,8 @@
         <![endif]-->
     </head>
     {{-- <body @if (app()->getLocale() =='ar') dir="rtl" @endif > --}}
+    <div class="loading">Loading&#8230;</div>
 
-    <body dir="{{ LaravelLocalization::getCurrentLocaleDirection() }}" >
+<body dir="{{ LaravelLocalization::getCurrentLocaleDirection() }}" >
 
 

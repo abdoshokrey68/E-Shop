@@ -1,7 +1,7 @@
 <div id="wrapper">
 
     <!-- Navigation -->
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <nav class="navbar navbar-inverse m-0" role="navigation">
         <div class="navbar-header">
             <a class="navbar-brand" href="{{route('dashboard',$store->id)}}"> <i class="fas fa-shopping-cart"></i> {{$store->name}} </a>
         </div>
@@ -25,77 +25,6 @@
                     @endif
                 @endforeach
             </li>
-
-            <li>
-                <a href="{{route('pay_coins',$store->id)}}" rel="alternate" class="text-light" >
-                    <i class="fas fa-coins ml-1 mr-1">
-                        @lang('site.pay_coins')
-                    </i>
-                </a>
-            </li>
-            {{-- <li class="dropdown navbar-inverse">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                    <i class="fa fa-bell fa-fw"></i>
-                </a>
-                <ul class="dropdown-menu dropdown-alerts bell-box">
-                    <li>
-                        <a href="#">
-                            <div>
-                                <i class="fa fa-comment fa-fw"></i> New Comment
-                                <span class="pull-right text-muted small">4 minutes ago</span>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <div>
-                                <i class="fa fa-twitter fa-fw"></i> 3 New Followers
-                                <span class="pull-right text-muted small">12 minutes ago</span>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <div>
-                                <i class="fa fa-envelope fa-fw"></i> Message Sent
-                                <span class="pull-right text-muted small">4 minutes ago</span>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <div>
-                                <i class="fa fa-tasks fa-fw"></i> New Task
-                                <span class="pull-right text-muted small">4 minutes ago</span>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <div>
-                                <i class="fa fa-upload fa-fw"></i> Server Rebooted
-                                <span class="pull-right text-muted small">4 minutes ago</span>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="divider"></li>
-                    <li>
-                        <a class="text-center" href="#">
-                            <strong>See All Alerts</strong>
-                            <i class="fa fa-angle-right"></i>
-                        </a>
-                    </li>
-                </ul>
-            </li> --}}
-            {{-- <li class="dropdown">
-                <ul class="dropdown-menu dropdown-user">
-                    <li><a href="#"><i class="fa fa-user fa-fw"></i> @lang('site.profile')</a>
-                    </li>
-                    <li><a href="{{route('dashboard.info.edit', $store->id)}}"><i class="fa fa-gear fa-fw"></i> @lang('site.settings')</a>
-                    </li>
-                    <li class="divider"></li>
-                </ul>
-            </li> --}}
         </ul>
         <!-- /.navbar-top-links -->
 

@@ -1,4 +1,6 @@
 $(document).ready(function () {
+    $('.loading').fadeOut();
+
     $('#add-color').click(function (e) {
         e.preventDefault;
         $(this).before('<input type="color" name="color[]" id="color-item">').show(1000)
@@ -8,6 +10,5 @@ $(document).ready(function () {
         e.preventDefault;
         $(this).parent().find('#color-item').last().hide(1000).remove()
     })
-
 
 })

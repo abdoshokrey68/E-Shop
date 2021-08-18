@@ -6,6 +6,9 @@
 */
 (function() {
 "use strict";
+$(document).ready(function () {
+    $('.loading').fadeOut();
+})
 
 /**
  * Easy selector helper function

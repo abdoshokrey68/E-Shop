@@ -165,7 +165,7 @@ class HomeController extends Controller
                         'regex:/[a-z]/',      // must contain at least one lowercase letter
                         'regex:/[A-Z]/',      // must contain at least one uppercase letter
                         'regex:/[0-9]/',      // must contain at least one digit
-                        'regex:/[@$!%*#?&]/', // must contain a special character
+                        // 'regex:/[@$!%*#?&]/', // must contain a special character
                     ]
                 ]);
                 $user->update([
@@ -179,7 +179,7 @@ class HomeController extends Controller
                 'phone'     => $request->phone,
                 'address'   => $request->address
             ]);
-            return redirect()->route('profile.edit', Auth::id())->with('success', 'update_profile_success');
+            return redirect()->route('profile.edit', Auth::id())->with('success', 'Your personal data has been successfully updated');
         } else {
             return redirect()->route('home');
         }
