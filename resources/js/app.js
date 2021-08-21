@@ -5,6 +5,8 @@ window.Vue = require('vue').default;
 
 //  Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
 
+// axios.defaults.baseURL = "localhost:8000"
+
 
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
@@ -24,16 +26,18 @@ Vue.component('contact-us', require('./components/contactUs.vue').default);
 Vue.component('home-stores', require('./components/homeStores.vue').default);
 Vue.component('home-careers', require('./components/homeCareers.vue').default);
 
-const lang = localStorage.getItem('lang') || 'ar' ;
-axios.defaults.baseURL = 'http://localhost:8000';
+const lang = localStorage.getItem('lang') || 'en' ;
+axios.defaults.baseURL = 'http://xdealer.net';
 axios.defaults.headers['Accept-Language'] = lang;
+
 
 const app = new Vue({
     el: '#app',
     data() {
         return {
-            locale: 'ar',
+            locale: 'en',
             lang: {},
+            text: 'qweq',
         }
     },
     methods: {

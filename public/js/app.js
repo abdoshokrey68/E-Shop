@@ -2340,6 +2340,7 @@ __webpack_require__.r(__webpack_exports__);
 
       axios.get("/api/getstores").then(function (res) {
         _this.stores = res.data.stores;
+        console.log(res);
         _this.countrys = JSON.parse(res.data.countrys);
       });
     },
@@ -3321,6 +3322,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js").default; //  Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
+// axios.defaults.baseURL = "localhost:8000"
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
@@ -3336,15 +3338,16 @@ Vue.component('orders-count', __webpack_require__(/*! ./components/store/ordersC
 Vue.component('contact-us', __webpack_require__(/*! ./components/contactUs.vue */ "./resources/js/components/contactUs.vue").default);
 Vue.component('home-stores', __webpack_require__(/*! ./components/homeStores.vue */ "./resources/js/components/homeStores.vue").default);
 Vue.component('home-careers', __webpack_require__(/*! ./components/homeCareers.vue */ "./resources/js/components/homeCareers.vue").default);
-var lang = localStorage.getItem('lang') || 'ar';
-axios.defaults.baseURL = 'http://localhost:8000';
+var lang = localStorage.getItem('lang') || 'en';
+axios.defaults.baseURL = 'http://xdealer.net';
 axios.defaults.headers['Accept-Language'] = lang;
 var app = new Vue({
   el: '#app',
   data: function data() {
     return {
-      locale: 'ar',
-      lang: {}
+      locale: 'en',
+      lang: {},
+      text: 'qweq'
     };
   },
   methods: {

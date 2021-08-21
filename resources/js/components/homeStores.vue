@@ -121,6 +121,7 @@
                 axios.get(`/api/getstores`)
                 .then(res => {
                     this.stores = res.data.stores
+                    console.log(res)
                     this.countrys = JSON.parse(res.data.countrys)
                 })
             },
