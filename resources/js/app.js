@@ -2,15 +2,6 @@ require('./bootstrap');
 
 window.Vue = require('vue').default;
 
-
-//  Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
-
-// axios.defaults.baseURL = "localhost:8000"
-
-
-// const files = require.context('./', true, /\.vue$/i)
-// files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
-
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('front-items', require('./components/store/frontItems.vue').default);
 Vue.component('category-items', require('./components/store/categoryItems.vue').default);

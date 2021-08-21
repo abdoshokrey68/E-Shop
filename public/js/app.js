@@ -3321,11 +3321,7 @@ __webpack_require__.r(__webpack_exports__);
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
-window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js").default; //  Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
-// axios.defaults.baseURL = "localhost:8000"
-// const files = require.context('./', true, /\.vue$/i)
-// files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
-
+window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js").default;
 Vue.component('example-component', __webpack_require__(/*! ./components/ExampleComponent.vue */ "./resources/js/components/ExampleComponent.vue").default);
 Vue.component('front-items', __webpack_require__(/*! ./components/store/frontItems.vue */ "./resources/js/components/store/frontItems.vue").default);
 Vue.component('category-items', __webpack_require__(/*! ./components/store/categoryItems.vue */ "./resources/js/components/store/categoryItems.vue").default);
