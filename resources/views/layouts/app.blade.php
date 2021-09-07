@@ -44,31 +44,31 @@
         <section id="topbar" class="d-flex align-items-center">
             <div class="container">
                 <div class="container d-flex justify-content-center justify-content-md-between">
-                <div class="contact-info d-flex align-items-center">
-                    <div class="mr-2 ml-2">
-                        <a href="tel:+20-1129899520"> <i class="fas fa-phone align-items-center mr-1 ml-2"> </i>+20-1129899520</a>
+                    <div class="contact-info d-none d-md-flex align-items-center">
+                        <div class="mr-2 ml-2">
+                            <a href="tel:+20-1129899520"> <i class="fas fa-phone align-items-center mr-1 ml-2"> </i>+20-1129899520</a>
+                        </div>
+                        <div class="mr-2 ml-2">
+                            <a href="mailto:abdoshokrey68@gmail.com"><i class="fas fa-at mr-1 ml-2"></i>abdoshokrey68@gmail.com</a>
+                        </div>
                     </div>
-                    <div class="mr-2 ml-2">
-                        <a href="mailto:abdoshokrey68@gmail.com"><i class="fas fa-at mr-1 ml-2"></i>abdoshokrey68@gmail.com</a>
-                    </div>
-                </div>
-                <div class="social-links d-none d-md-flex align-items-center">
+                    <div class="social-links d-flex align-items-center">
 
-                    <div class="lang mr-4 ml-4">
-                        @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
-                            @if ($localeCode != app()->getLocale())
-                                <a rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
-                                    {{ $properties['native'] }}
-                                </a>
-                            @endif
-                        @endforeach
-                    </div>
+                        <div class="lang mr-4 ml-4">
+                            @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                                @if ($localeCode != app()->getLocale())
+                                    <a rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+                                        {{ $properties['native'] }}
+                                    </a>
+                                @endif
+                            @endforeach
+                        </div>
 
-                    <a href="https://twitter.com/abdoshokrey68"  target=”_blank” class="twitter"><i class="fab fa-twitter"></i></a>
-                    <a href="https://www.facebook.com/BooDY.01149743903"  target=”_blank” ><i class="fab fa-facebook"></i></a>
-                    <a href="https://www.instagram.com/abdallahshokrey/"  target=”_blank” class="instagram"><i class="fab fa-instagram"></i></a>
-                    {{-- <a href="#" class="linkedin"><i class="fab fa-linkedin"></i></i></a> --}}
-                </div>
+                        <a href="https://twitter.com/abdoshokrey68"  target=”_blank” class="twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.facebook.com/BooDY.01149743903"  target=”_blank” ><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/abdallahshokrey/"  target=”_blank” class="instagram"><i class="fab fa-instagram"></i></a>
+                        {{-- <a href="#" class="linkedin"><i class="fab fa-linkedin"></i></i></a> --}}
+                    </div>
                 </div>
             </div>
 

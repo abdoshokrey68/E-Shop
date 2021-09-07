@@ -233,6 +233,10 @@ return [
     'our_services'  => 'Our services are your best choice',
     'currency'      => 'The Currency',
 
-    'future_home'   =>  'Future home of something quite cool.'
+    'future_home'   =>  'Future home of something quite cool.',
 
+
+    'enter_your_site' => 'Login to your store and control panel',
+    'enter_site1'       => 'Click on all your stores button in the top menu',
+    'enter_site2'       => 'Or by entering your store and pressing the control panel button in the top menu'
 ];

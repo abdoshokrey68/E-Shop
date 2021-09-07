@@ -80,8 +80,14 @@
                         @error('payment')
                             <small class="text-danger">{{$message}}</small>
                         @enderror
+                        <div class="col-md-12 mt-3">
+                            <h4> @lang('site.enter_your_site') </h4>
+                            <ul style="list-style-type:none">
+                                <li> <i class="fas fa-check text-success"></i> @lang('site.enter_site1') </li>
+                                <li> <i class="fas fa-check text-success"></i> @lang('site.enter_site2') </li>
+                            </ul>
+                        </div>
                         <div class="clear"></div>
-
                             <input type="submit" class="fadeIn third fourth mt-3 col-md-12" value="@lang('site.create')">
                     </form>
                 </div>
