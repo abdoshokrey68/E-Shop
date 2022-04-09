@@ -14,58 +14,59 @@ use Illuminate\Contracts\Validation\Validator;
 class itemControiller extends Controller
 {
 
-    public function items($id) {
+    public function items($id)
+    {
 
         $store = store::with('items', 'categorys')->find($id);
 
         if ($store->user_id == Auth::id()) {
-            return view ('store.dashboard.items.index', compact('store'));
+            return view('store.dashboard.items.index', compact('store'));
         } else {
             return redirect()->route('home');
         }
-
     }
 
-    public function additem ($id) {
+    public function additem($id)
+    {
         $store = store::with('categorys')->find($id);
 
         if ($store->user_id == Auth::id()) {
-            return view('store.dashboard.items.add',compact('store'));
+            return view('store.dashboard.items.add', compact('store'));
         } else {
             return redirect()->route('home');
         }
     }
 
-    public function createitem (request $request, $id)
+    public function createitem(request $request, $id)
     {
         $store = store::find($request->store_id);
         // dd($request->all());
         if ($store->user_id == Auth::id()) {
 
             if ($request->color) {
-                $color = implode(',',$request->color);
+                $color = implode(',', $request->color);
             } else {
-                $color= '';
+                $color = '';
             }
             if ($request->size) {
-                $size = implode(',',$request->size);
+                $size = implode(',', $request->size);
             } else {
-                $size= '';
+                $size = '';
             }
             if ($request->made) {
                 $made = $request->made;
             } else {
-                $made= '';
+                $made = '';
             }
             if ($request->old_price) {
                 $old_price = $request->old_price;
             } else {
-                $old_price= '';
+                $old_price = '';
             }
             if ($request->price) {
                 $price = $request->price;
             } else {
-                $price= '';
+                $price = '';
             }
             // dd($request->file('image'));
             if ($request->image) {
@@ -74,8 +75,8 @@ class itemControiller extends Controller
                 ]);
                 $file           = $request->file('image');
                 $path           = public_path() . '/image/items';
-                $image_name     = time() .'.'. $file->getClientOriginalExtension();
-                $file->move($path,$image_name);
+                $image_name     = time() . '.' . $file->getClientOriginalExtension();
+                $file->move($path, $image_name);
             } else {
                 $image_name = 'empty.jpg';
             }
@@ -108,54 +109,53 @@ class itemControiller extends Controller
         } else {
             return redirect()->route('home');
         }
-
     }
 
-    public function edititem ($store_id)
+    public function edititem($store_id)
     {
-        $user_id    = Auth      ::id();
-        $item       = item      ::find($store_id);
-        $category   = category  ::find($item->category_id);
-        $store      = store     ::with('categorys')->find($category->store_id);
+        $user_id    = Auth::id();
+        $item       = item::find($store_id);
+        $category   = category::find($item->category_id);
+        $store      = store::with('categorys')->find($category->store_id);
         $item_size = explode(',', $item->size);
         $item_color = explode(',', $item->color);
         if ($user_id == $store->user_id) {
-            return view ('store.dashboard.items.edit',compact('store','item','item_size','item_color'));
+            return view('store.dashboard.items.edit', compact('store', 'item', 'item_size', 'item_color'));
         } else {
             return redirect()->route('home');
         }
     }
 
-    public function updateitem  (request $request, $id)
+    public function updateitem(request $request, $id)
     {
         $store = store::find($request->store_id);
         // dd($request->all());
 
         if ($request->color) {
-            $color = implode(',',$request->color);
+            $color = implode(',', $request->color);
         } else {
-            $color= '';
+            $color = '';
         }
 
         if ($request->size) {
-            $size = implode(',',$request->size);
+            $size = implode(',', $request->size);
         } else {
-            $size= '';
+            $size = '';
         }
         if ($request->made) {
             $made = $request->made;
         } else {
-            $made= '';
+            $made = '';
         }
         if ($request->old_price) {
             $old_price = $request->old_price;
         } else {
-            $old_price= '';
+            $old_price = '';
         }
         if ($request->price) {
             $price = $request->price;
         } else {
-            $price= '';
+            $price = '';
         }
 
         if ($store->user_id == Auth::id()) {
@@ -187,17 +187,15 @@ class itemControiller extends Controller
                 $request->validate([
                     'image'         => 'mimes:jpeg,jpg,png|max:4000',
                 ]);
-                if ($store->image != 'empty.png' && $store->image != null)
-                {
-                    if (is_file(public_path("image/items/$item->image")))
-                    {
+                if ($store->image != 'empty.png' && $store->image != null) {
+                    if (is_file(public_path("image/items/$item->image"))) {
                         unlink(public_path("image/items/$item->image"));
                     }
                 }
                 $file           = $request->file('image');
                 $path           = public_path() . '/image/items';
-                $image_name     = time() . rand(1,2000) .'.'. $file->getClientOriginalExtension();
-                $file->move($path,$image_name);
+                $image_name     = time() . rand(1, 2000) . '.' . $file->getClientOriginalExtension();
+                $file->move($path, $image_name);
                 $item->update([
                     'image'             => $image_name,
                 ]);
@@ -206,13 +204,9 @@ class itemControiller extends Controller
             $request->session()->flash('success', 'Update Item Is Successfully');
 
             return redirect()->route('dashboard.items', $request->store_id);
-
         } else {
             return redirect()->route('home');
         }
-
-
-
     }
 
 
@@ -224,9 +218,10 @@ class itemControiller extends Controller
             $store      = store::find($category->store_id);
 
             if ($store->user_id == Auth::id()) {
-                if (is_file(public_path("image/items/$item->image")))
-                {
-                    unlink(public_path("image/items/$item->image"));
+                if ($item->image != "empty.jpg") {
+                    if (is_file(public_path("image/items/$item->image"))) {
+                        unlink(public_path("image/items/$item->image"));
+                    }
                 }
                 $item->delete();
                 session()->flash('success', 'Item ٍٍٍSuccessfully Deleted');
@@ -237,5 +232,4 @@ class itemControiller extends Controller
             return redirect()->route('home');
         }
     }
-
 }
