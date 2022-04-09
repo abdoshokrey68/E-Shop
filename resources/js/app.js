@@ -18,7 +18,7 @@ Vue.component('home-stores', require('./components/homeStores.vue').default);
 Vue.component('home-careers', require('./components/homeCareers.vue').default);
 
 const lang = localStorage.getItem('lang') || 'en' ;
-axios.defaults.baseURL = 'http://xdealer.net';
+axios.defaults.baseURL = 'http://localhost:8000';
 axios.defaults.headers['Accept-Language'] = lang;
 
 

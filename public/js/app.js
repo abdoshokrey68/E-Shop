@@ -2311,18 +2311,109 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: 'homeStores',
-  props: ['locale'],
+  name: "homeStores",
+  props: ["locale"],
   data: function data() {
     return {
       stores: {},
-      search: '',
+      search: "",
       lang: {},
-      store_delivery: ['0', '1'],
-      store_payment: ['0', '1'],
+      store_delivery: ["0", "1"],
+      store_payment: ["0", "1"],
       countrys: {},
-      country_selected: ''
+      country_selected: ""
     };
   },
   mounted: function mounted() {
@@ -2339,8 +2430,8 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       axios.get("/api/getstores").then(function (res) {
-        _this.stores = res.data.stores;
-        console.log(res);
+        _this.stores = res.data.stores; // console.log(res)
+
         _this.countrys = JSON.parse(res.data.countrys);
       });
     },
@@ -2352,53 +2443,53 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     getlang: function getlang() {
-      if (this.locale == 'ar') {
+      if (this.locale == "ar") {
         this.lang = {
-          search: ' بحث ',
-          salary: ' الراتب ',
-          max_price: ' أعلي راتب ',
-          min_price: ' أقل راتب ',
-          career_system: ' نظام الوظيفة ',
-          system1: ' فترة غير محدودة ',
-          system2: ' فترة محدودة ',
-          system3: ' عقد عمل ',
-          no_job: ' لا يوجد وظائف حاليا ',
-          career_empty: ' هذه النتائج غير موجودة قم بالبحث مرة اخري ',
-          new_career: ' ابحث عن وظيفة جديدة ',
-          country: ' البلد ',
-          delivery: ' التوصيل للمنازل ',
-          available: ' متوفر ',
-          not_available: ' غير متوفر ',
-          markets: ' بعض اسواقنا ',
-          not_here: ' ليس موجود ',
-          search_again: ' أبحث مرة اخري ',
-          payment: ' دفع الكتروني ',
-          stores_empty: ' لا يوجد متاجر بعد ',
-          add_new_store: 'قم بإضافة متجر خاص بك '
+          search: " بحث ",
+          salary: " الراتب ",
+          max_price: " أعلي راتب ",
+          min_price: " أقل راتب ",
+          career_system: " نظام الوظيفة ",
+          system1: " فترة غير محدودة ",
+          system2: " فترة محدودة ",
+          system3: " عقد عمل ",
+          no_job: " لا يوجد وظائف حاليا ",
+          career_empty: " هذه النتائج غير موجودة قم بالبحث مرة اخري ",
+          new_career: " ابحث عن وظيفة جديدة ",
+          country: " البلد ",
+          delivery: " التوصيل للمنازل ",
+          available: " متوفر ",
+          not_available: " غير متوفر ",
+          markets: " بعض اسواقنا ",
+          not_here: " ليس موجود ",
+          search_again: " أبحث مرة اخري ",
+          payment: " دفع الكتروني ",
+          stores_empty: " لا يوجد متاجر بعد ",
+          add_new_store: "قم بإضافة متجر خاص بك "
         };
       } else {
         this.lang = {
-          search: 'Search',
-          salary: 'Salary',
-          max_price: 'Maximum Price',
-          min_price: 'Minimum Price',
-          career_system: 'Career System',
-          system1: 'Unlimited Period',
-          system2: 'Limited Time',
-          system3: 'Employment contract',
-          no_job: ' There are no jobs at the moment ',
-          career_empty: 'These results are not found, please search again',
-          new_career: 'Searching for a new job',
-          country: 'The Country',
-          delivery: ' Delivery  ',
-          available: ' Available ',
-          not_available: ' Not Available ',
-          markets: ' Some of our Markets ',
-          not_here: 'isn\'t here',
-          search_again: 'Search Again',
-          payment: ' Payment ',
-          stores_empty: ' There are no stores yet ',
-          add_new_store: 'Add your own store'
+          search: "Search",
+          salary: "Salary",
+          max_price: "Maximum Price",
+          min_price: "Minimum Price",
+          career_system: "Career System",
+          system1: "Unlimited Period",
+          system2: "Limited Time",
+          system3: "Employment contract",
+          no_job: " There are no jobs at the moment ",
+          career_empty: "These results are not found, please search again",
+          new_career: "Searching for a new job",
+          country: "The Country",
+          delivery: " Delivery  ",
+          available: " Available ",
+          not_available: " Not Available ",
+          markets: " Some of our Markets ",
+          not_here: "isn't here",
+          search_again: "Search Again",
+          payment: " Payment ",
+          stores_empty: " There are no stores yet ",
+          add_new_store: "Add your own store"
         };
       }
     }
@@ -3335,7 +3426,7 @@ Vue.component('contact-us', __webpack_require__(/*! ./components/contactUs.vue *
 Vue.component('home-stores', __webpack_require__(/*! ./components/homeStores.vue */ "./resources/js/components/homeStores.vue").default);
 Vue.component('home-careers', __webpack_require__(/*! ./components/homeCareers.vue */ "./resources/js/components/homeCareers.vue").default);
 var lang = localStorage.getItem('lang') || 'en';
-axios.defaults.baseURL = 'http://xdealer.net';
+axios.defaults.baseURL = 'http://localhost:8000';
 axios.defaults.headers['Accept-Language'] = lang;
 var app = new Vue({
   el: '#app',
@@ -40378,7 +40469,7 @@ var render = function() {
         _c("div", { staticClass: "sidebar p-2" }, [
           _c("h3", { staticClass: "sidebar-title" }, [
             _c("i", { staticClass: "fas fa-search" }),
-            _vm._v(" " + _vm._s(_vm.lang.search) + " ")
+            _vm._v(" " + _vm._s(_vm.lang.search) + "\n                ")
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "sidebar-item search-form" }, [
@@ -40434,7 +40525,11 @@ var render = function() {
           _c("div", { staticClass: "sidebar-item categories p-2 m-0" }, [
             _c("h3", { staticClass: "sidebar-title" }, [
               _c("i", { staticClass: "fas fa-truck mr-2 ml-2" }),
-              _vm._v(" " + _vm._s(_vm.lang.delivery) + " ")
+              _vm._v(
+                "\n                        " +
+                  _vm._s(_vm.lang.delivery) +
+                  "\n                    "
+              )
             ]),
             _vm._v(" "),
             _c("ul", [
@@ -40483,7 +40578,11 @@ var render = function() {
                 }),
                 _vm._v(" "),
                 _c("label", { attrs: { for: "deli_available" } }, [
-                  _vm._v(" " + _vm._s(_vm.lang.available) + " ")
+                  _vm._v(
+                    "\n                                " +
+                      _vm._s(_vm.lang.available) +
+                      "\n                            "
+                  )
                 ])
               ]),
               _vm._v(" "),
@@ -40532,7 +40631,11 @@ var render = function() {
                 }),
                 _vm._v(" "),
                 _c("label", { attrs: { for: "deli_notavailable" } }, [
-                  _vm._v(" " + _vm._s(_vm.lang.not_available) + " ")
+                  _vm._v(
+                    "\n                                " +
+                      _vm._s(_vm.lang.not_available) +
+                      "\n                            "
+                  )
                 ])
               ])
             ])
@@ -40543,7 +40646,11 @@ var render = function() {
           _c("div", { staticClass: "sidebar-item categories p-2 m-0" }, [
             _c("h3", { staticClass: "sidebar-title" }, [
               _c("i", { staticClass: "fas fa-money-check mr-2 ml-2" }),
-              _vm._v(" " + _vm._s(_vm.lang.payment) + " ")
+              _vm._v(
+                "\n                        " +
+                  _vm._s(_vm.lang.payment) +
+                  "\n                    "
+              )
             ]),
             _vm._v(" "),
             _c("ul", [
@@ -40592,7 +40699,11 @@ var render = function() {
                 }),
                 _vm._v(" "),
                 _c("label", { attrs: { for: "pay_available" } }, [
-                  _vm._v(" " + _vm._s(_vm.lang.available) + " ")
+                  _vm._v(
+                    "\n                                " +
+                      _vm._s(_vm.lang.available) +
+                      "\n                            "
+                  )
                 ])
               ]),
               _vm._v(" "),
@@ -40641,7 +40752,11 @@ var render = function() {
                 }),
                 _vm._v(" "),
                 _c("label", { attrs: { for: "pay_notavailable" } }, [
-                  _vm._v(" " + _vm._s(_vm.lang.not_available) + " ")
+                  _vm._v(
+                    "\n                                " +
+                      _vm._s(_vm.lang.not_available) +
+                      "\n                            "
+                  )
                 ])
               ])
             ])
@@ -40652,13 +40767,13 @@ var render = function() {
       _c("div", { staticClass: "col-md-9 stores-box" }, [
         _c("h1", { staticClass: "col-md-12 text-center text-style" }, [
           _c("div", { staticClass: "fas fa-store" }),
-          _vm._v(" " + _vm._s(_vm.lang.markets) + " ")
+          _vm._v(
+            "\n                " + _vm._s(_vm.lang.markets) + "\n            "
+          )
         ]),
         _vm._v(" "),
         _vm.search
-          ? _c("h5", { staticClass: "mb-2 h4" }, [
-              _vm._v(" " + _vm._s(_vm.search) + " ")
-            ])
+          ? _c("h5", { staticClass: "mb-2 h4" }, [_vm._v(_vm._s(_vm.search))])
           : _vm._e(),
         _vm._v(" "),
         _c("hr"),
@@ -40731,17 +40846,17 @@ var render = function() {
                     { staticClass: "text-danger col-md-12 text-center" },
                     [
                       _vm._v(
-                        ' "' +
+                        '\n                        "' +
                           _vm._s(_vm.search) +
                           '" ' +
                           _vm._s(_vm.lang.not_here) +
-                          " "
+                          "\n                    "
                       )
                     ]
                   ),
                   _vm._v(" "),
                   _c("h4", { staticClass: "text-danger" }, [
-                    _vm._v(" " + _vm._s(_vm.lang.search_again) + " ")
+                    _vm._v(_vm._s(_vm.lang.search_again))
                   ])
                 ])
               : _vm._e(),
@@ -40751,12 +40866,22 @@ var render = function() {
                   _c(
                     "h2",
                     { staticClass: "text-danger col-md-12 text-center" },
-                    [_vm._v(" " + _vm._s(_vm.lang.stores_empty) + " ")]
+                    [
+                      _vm._v(
+                        "\n                        " +
+                          _vm._s(_vm.lang.stores_empty) +
+                          "\n                    "
+                      )
+                    ]
                   ),
                   _vm._v(" "),
                   _c("a", { attrs: { href: "/add_store" } }, [
                     _c("h4", { staticClass: "text-danger" }, [
-                      _vm._v(" " + _vm._s(_vm.lang.add_new_store) + " ")
+                      _vm._v(
+                        "\n                            " +
+                          _vm._s(_vm.lang.add_new_store) +
+                          "\n                        "
+                      )
                     ])
                   ])
                 ])
